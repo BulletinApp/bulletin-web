@@ -5,6 +5,9 @@
         <title>Home MADAFAKA</title>
     </head>
     <body>
-      error
+      events
+      {% for event in result %}
+        {{event.dataValues.title}}
+      {% endfor %}
     </body>
 </html>
