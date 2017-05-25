@@ -1,6 +1,10 @@
 #box {
     padding: 3em;
-    background: black;
+    background: #212121;
     margin-top: 3em;
     color: white;
+}
+
+#submit {
+    color: black;
 }
