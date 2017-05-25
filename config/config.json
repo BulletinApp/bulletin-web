@@ -1,11 +1,7 @@
 {
   "development": {
-    "username": "dev",
-    "password": "dev",
-    "database": "bulletindev",
-    "host": "127.0.0.1",
-    "dialect": "postgresql",
-    "port":5432
+    "dialect": "sqlite",
+    "storage": "bulletindev.db"
   },
   "test": {
     "username": "root",
