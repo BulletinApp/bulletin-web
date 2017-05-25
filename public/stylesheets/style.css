@@ -9,8 +9,26 @@
     width: 100%;
 }
 
+a{
+    font-family: Roboto+Condensed;
+}
+
 .emphasize-text{
-    font-family: ;
+    font-family: Roboto+Condensed;
+    font-weight: bold;
     color: white;
     font-size: 20px;
+}
+
+
+.side-nav{
+    background-color: rgba(255, 0, 0, 0.0)!important;
+}
+
+.side-nav li>a{
+    color: rgba(255,255,255,0.87);
+}
+
+nav{
+    background-color: rgba(255, 0, 0, 0.0)!important;
 }
