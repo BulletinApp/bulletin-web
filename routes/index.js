@@ -20,6 +20,16 @@ router.get('/events', function(req, res, next) {
     res.render('events', {result});
   });
 });
+router.get('/event/:eventId', function(req,res){
+    var eventId = req.params.eventId;
+    models.BulletinEvent.findById(eventId).then(result => {
+        if(result){
+            res.render('event', {result});
+        } else {
+            res.render('error');
+        }
+    });
+});
 
 router.get('/register', function(req, res, next) {
     res.render('register', { title: 'Nigguh'});
