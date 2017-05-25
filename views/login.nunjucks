@@ -24,6 +24,11 @@
                     <label for="password">Password</label>
                 </div>
             </div>
+            <div class="row">
+                <div class="s12 center">
+                    <button class="waves-effect waves-light btn-large yellow lighten-4" id="submit">SUBMIT</button>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col s12 m4 l3"></div>
