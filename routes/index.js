@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
     models.BulletinEvent.findAll().then(events =>{
-        
+
         res.render('index', { events });
     });
 });
@@ -23,6 +23,10 @@ router.get('/events', function(req, res, next) {
 
 router.get('/register', function(req, res, next) {
     res.render('register', { title: 'Nigguh'});
+});
+
+router.get('/login', function(req, res, next) {
+    res.render('login', { title: 'Nigguh'});
 });
 
 module.exports = router;
