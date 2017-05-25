@@ -1,8 +1,37 @@
 {% extends "base.nunjucks" %}
 
 {% block styles%}
+<link rel="stylesheet" href="/stylesheets/event.css">
 {% endblock %}
 
 {% block content %}
-<span>{{result.title}}</span>
+<div class="slider fullscreen">
+    <ul class="slides">
+        <li>
+            <img src="/images/events/{{result.title}}/index-parallax.jpg" alt="">
+        </li>
+    </ul>
+    <div class="fixed-action-btn click-to-toggle">
+        <a class="btn-floating btn-large transparent button-collapse" data-activates="slide-out">
+            <i class="material-icons">keyboard_arrow_left</i>
+        </a>
+    </div>
+    <div class="">
+        <ul id="slide-out" class="side-nav">
+            <li><div class="userView">
+            <div class="background">
+                <img src="images/office.jpg">
+            </div>
+                <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+                <a href="#!name"><span class="white-text name">John Doe</span></a>
+                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            </div></li>
+            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+            <li><a href="#!">Second Link</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
