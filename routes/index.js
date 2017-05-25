@@ -18,4 +18,8 @@ router.get('/events', function(req, res, next) {
   });
 });
 
+router.get('/register', function(req, res, next) {
+    res.render('register', { title: 'Nigguh'});
+});
+
 module.exports = router;
