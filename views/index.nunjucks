@@ -1,12 +1,45 @@
 {% extends "base.nunjucks" %}
 
+{% block styles %}
+    <link rel="stylesheet" href="stylesheets/index.css">
+{% endblock %}
+
 {% block content %}
 <div class="parallax-container">
-  <div class="parallax"><img src="images/index-parallax2.jpg"></div>
+    <nav>
+        <div class="nav-wrapper">
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class = "emphasize-text" href="sass.html">Bulletin</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="parallax"><img src="images/index-parallax2.jpg"></div>
+    <span></span>
 </div>
-<div class="container">
-    <div class="carousel carousel-slider">
-
-    </div>
-</div>
+<div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="https://metrouk2.files.wordpress.com/2016/12/622946210.jpg?w=620&h=426&crop=1"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://s-media-cache-ak0.pinimg.com/originals/4b/8a/b5/4b8ab56a7cdb72550036031d94f9a940.jpg"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://www.upcomingevents.com/images/events/philadelphia/graphics/24277lgypd3pey7ll.jpg"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+    </ul>
+  </div>
 {% endblock %}

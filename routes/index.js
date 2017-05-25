@@ -4,7 +4,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    models.BulletinEvent.findAll().then(events =>{
+        
+        res.render('index', { events });
+    });
 });
 
 router.get('/profile', function(req, res, next) {
