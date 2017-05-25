@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Org Profile</title>
-    </head>
-    <link rel="stylesheet" href="/stylesheets/materialize.min.css">
-    <body>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Sass</a></li>
-                    <li><a href="#">Components</a></li>
-                    <li><a href="#">JavaScript</a></li>
-                </ul>
-            </div>
-        </nav>
-    </body>
-    <script src = "/javascripts/materialize.min.js"></script>
-</html>
+{% extends "base.nunjucks" %}
+
+{% block content %}
+<body>
+    <div class="parallax-container">
+        <div class="parallax"><img src="images/123.jpg"></div>
+    </div>
+    <div class="carousel">
+        <a class="carousel-item" href="#one!"><img src="images/123.jpg"></a>
+      </div>
+</body>
+{% endblock %}
