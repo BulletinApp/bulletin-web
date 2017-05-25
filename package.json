@@ -12,6 +12,7 @@
     "express": "~4.15.2",
     "materialize-css": "^0.98.2",
     "morgan": "~1.8.1",
+    "nodemon": "^1.11.0",
     "nunjucks": "^3.0.0",
     "pg": "^6.2.2",
     "pg-hstore": "^2.3.2",
