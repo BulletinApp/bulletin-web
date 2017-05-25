@@ -5,6 +5,8 @@
         <title></title>
         <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
         <link rel="stylesheet" href="stylesheets/materialize.min.css">
+        {% block style %}
+        {% endblock %}
     </head>
     <body>
         {% block content %}
@@ -13,4 +15,6 @@
     <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src = "javascripts/materialize.min.js"></script>
     <script src = "javascripts/init.js"></script>
+    {% block script %}
+    {% endblock %}
 </html>
