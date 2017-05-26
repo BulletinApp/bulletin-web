@@ -29,4 +29,8 @@ router.get('/login', function(req, res, next) {
     res.render('login', { title: 'Nigguh'});
 });
 
+router.get('/create-event', function(req, res, next) {
+    res.render('create-event', { title: 'Nigguh'});
+});
+
 module.exports = router;
