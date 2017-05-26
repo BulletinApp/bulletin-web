@@ -12,23 +12,25 @@
             <div class="row">
                 <h3 class="center">LOGIN</h3>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="username" type="text" class="validate">
-                    <label for="username">Username</label>
+            <form method="post">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="username" type="text" class="validate">
+                        <label for="username">Username</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="s12 center">
-                    <button class="waves-effect waves-light btn-large yellow lighten-4" id="submit">SUBMIT</button>
+                <div class="row">
+                    <div class="s12 center">
+                        <button class="waves-effect waves-light btn-large yellow lighten-4" id="submit">SUBMIT</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <div class="col s12 m2 l3"></div>
