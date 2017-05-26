@@ -10,12 +10,19 @@
         <li>
             <img src="/images/events/{{result.title}}/index-parallax.jpg" alt="">
 <<<<<<< HEAD
+<<<<<<< HEAD
             {# <div class="caption left-align">
                 <h3>{{result.title}}</h3>
                 <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>
             </div> #}
 =======
 >>>>>>> Add Carousel and Fab Button in UI
+=======
+            <div class="caption left-align">
+                <h3>{{result.title}}</h3>
+                <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>
+            </div>
+>>>>>>> Add Nunjucks templates
         </li>
     </ul>
     <div class="fixed-action-btn click-to-toggle">

@@ -35,3 +35,13 @@
     font-size: 15px;
     font-weight: bold;
 }
+
+#image_div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#org_image{
+    width: 150px;
+    height: 150px;
+}
