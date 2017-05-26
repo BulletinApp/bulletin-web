@@ -1,7 +1,7 @@
 {% extends "base.nunjucks" %}
 
 {% block styles %}
-<link rel="stylesheet" href="stylesheets/login.css">
+<link rel="stylesheet" href="stylesheets/create-event.css">
 {% endblock %}
 
 {% block content %}
@@ -10,18 +10,24 @@
     <div class="col s12 m8 l6">
         <div class="container z-depth-5" id="box">
             <div class="row">
-                <h3 class="center">LOGIN</h3>
+                <h3 class="center">CREATE EVENT</h3>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="username" type="text" class="validate">
-                    <label for="username">Username</label>
+                    <input id="event_name" type="text" class="validate">
+                    <label for="event_name">Event Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
+                    <input id="event_date" type="date" class="datepicker validate">
+                    <label for="event_date">Event Date</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="description" type="text" class="materialize-textarea validate"></textarea>
+                    <label for="description">Short Description</label>
                 </div>
             </div>
             <div class="row">
