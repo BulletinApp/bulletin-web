@@ -12,29 +12,31 @@
             <div class="row">
                 <h3 class="center">CREATE EVENT</h3>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="event_name" type="text" class="validate">
-                    <label for="event_name">Event Name</label>
+            <form method="post">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="event_name" type="text" class="validate">
+                        <label for="event_name">Event Name</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="event_date" type="date" class="datepicker validate">
-                    <label for="event_date">Event Date</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="event_date" type="date" class="datepicker validate">
+                        <label for="event_date">Event Date</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="description" type="text" class="materialize-textarea validate"></textarea>
-                    <label for="description">Short Description</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="description" type="text" class="materialize-textarea validate"></textarea>
+                        <label for="description">Short Description</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="s12 center">
-                    <button class="waves-effect waves-light btn-large yellow lighten-4" id="submit">SUBMIT</button>
+                <div class="row">
+                    <div class="s12 center">
+                        <button class="waves-effect waves-light btn-large yellow lighten-4" id="submit">SUBMIT</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <div class="col s12 m2 l3"></div>
