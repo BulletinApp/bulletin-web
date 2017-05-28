@@ -9,6 +9,7 @@
     <div class="col s12 m2 l3"></div>
     <div class="col s12 m8 l6">
         <div class="container z-depth-5" id="box">
+          <form method="post" action="/login">
             <div class="row">
                 <h3 class="center">LOGIN</h3>
             </div>
