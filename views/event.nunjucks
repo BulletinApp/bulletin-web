@@ -33,8 +33,8 @@
                     <a><span class="white-text description">{{result.description}}</span></a>
                 </div>
             </li>
-            <li><a href="#!"><span class = "desc-labels">Organizer: </span>{{result.Organizer.name}}</a></li>
-            <li><a><span class = "desc-labels">Email: </span>{{result.Organizer.email}}</a></li>
+            <li><a href="#!"><span class = "desc-labels">Organizer: </span>{{result.Organization.name}}</a></li>
+            <li><a><span class = "desc-labels">Email: </span>{{result.Organization.email}}</a></li>
             <li><a><span class = "desc-labels">Entrance Fee: </span>{{result.fee}}</a></li>
         </ul>
     </div>
