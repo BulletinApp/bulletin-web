@@ -1,74 +1,91 @@
 {% extends "base.nunjucks" %}
 
-{% block scripts %}
+{% block styles %}
+<link rel="stylesheet" href="stylesheets/register.css">
+{% endblock %}
 
 {% endblock %}
 
 {% block content %}
+<h1 id="validate-status"></h1>
 <div class="row">
-    <form class="col s12" action="/register">
+    <div class="col s12 m2 l3"></div>
+    <div class="container z-depth-5" id="box">
         <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">people</i>
-                <input id="org_name" type="text" class="validate">
-                <label for="org_name">Organization Name</label>
-            </div>
-            <div class="input-field col s6">
-                <i class="material-icons prefix">today</i>
-                <input id="date_established" type="date" class="datepicker">
-                <label for="date_established">Date Established</label>
-            </div>
+            <h3 class="center">REGISTER</h3>
         </div>
         <div class="row">
-            <div class="file-field input-field col s6">
-                <div class="btn">
-                    <span>Upload Photo</span>
-                    <input type="file">
+            <form class="col s12" action="/register/submit" method="post" name="register_form">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">people</i>
+                        <input id="org_name" type="text" class="validate" name="org_name">
+                        <label for="org_name">Organization Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">today</i>
+                        <input id="date_established" type="date" class="datepicker" name=date_established>
+                        <label for="date_established">Date Established</label>
+                    </div>
                 </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
+                <div class="row">
+                    <div class="file-field input-field col s12">
+                        <div class="waves-effect waves-light btn-large yellow lighten-4">
+                            <span id="upload">Upload Photo</span>
+                            <input type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" name="photo">
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">lock</i>
+                        <input id="password" type="password" class="validate" name="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="password_confirm" type="password" class="validate" name="password_confirm">
+                        <label for="password_confirm">Confirm Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="contact_person" type="text" class="validate" name="contact_person">
+                        <label for="contact_person">Contact Person</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="contact_number" type="text" class="validate" name="contact_number">
+                        <label for="contact_number">Contact Number</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" type="email" class="validate" name="email">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock</i>
+                        <textarea id="description" class="materialize-textarea" name="description"></textarea>
+                        <label for="description">Organization Description</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="s12 center">
+                        <input class="waves-effect waves-light btn-large yellow lighten-4 disabled" type="submit" value="Submit" id="submit" disabled="true">
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">lock</i>
-                <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
-            </div>
-            <div class="input-field col s6">
-                <input id="password_confirm" type="password" class="validate">
-                <label for="password_confirm">Confirm Password</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="contact_person" type="text" class="validate">
-                <label for="contact_person">Contact Person</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <i class="material-icons prefix">phone</i>
-                <input id="contact_number" type="text" class="validate">
-                <label for="contact_number">Contact Number</label>
-            </div>
-            <div class="input-field col s6">
-                <i class="material-icons prefix">email</i>
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">lock</i>
-                <textarea id="description" class="materialize-textarea"></textarea>
-                <label for="description">Organization Description</label>
-            </div>
-        </div>
-        <input class="btn" type="submit" value="Submit">
-    </form>
+    </div>
+    <div class="col s12 m2 l3"></div>
 </div>
 
+<script src="javascripts/register.js"></script>
 {% endblock %}
