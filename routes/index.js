@@ -26,9 +26,10 @@ router.get('/event/:eventId', function(req,res){
         where: {
             id: eventId
         },
-        include: [models.Organization]
+        include: [ models.Organization ]
     }).then(result => {
         console.log(result);
+        console.log(result.Organization);
         res.render('event', {result});
     });
 });
