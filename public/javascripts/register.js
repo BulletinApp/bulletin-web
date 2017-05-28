@@ -74,7 +74,6 @@ $('#submit').click(function (e) {
     }
 
     if (isComplete == false) {
-        $('#error_msg').html("error");
         return false;
     }
 });
