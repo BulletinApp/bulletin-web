@@ -1,12 +1,54 @@
 {% extends "base.nunjucks" %}
 
+{% block styles %}
+<link rel="stylesheet" href="/stylesheets/orgprofile.css">
+{% endblock %}
+
 {% block content %}
-<body>
-    <div class="parallax-container">
-        <div class="parallax"><img src="images/123.jpg"></div>
+<div class="parallax-container">
+    <div class="parallax"><img class = "cover-photo"  src="/images/orgs/sc@gmail.com/sccover.png" alt=""></div>
+    <div class="main-details center">
+        <div  id = "profile_image_div">
+            <img class = "circle" id = "profile_image" width= "150px" src="/images/orgs/sc@gmail.com/orglogo.png" alt="">
+        </div>
+        <div class="info-box">
+            <h4 id = "profile_name">{{result.name}}</h4>
+            <span class="info">Since {{result.established}}</span>
+            <hr>
+            <div class="row">
+                <span class="info">Contact: {{result.contactPerson}}</span>
+                <br>
+                <span class="info2">{{result.email}}</span>
+                <br>
+                <span class="info2">{{result.contactDetails}}</span>
+                <br>
+                <span class="info2">{{result.description}}</span>
+            </div>
+        </div>
     </div>
-    <div class="carousel">
-        <a class="carousel-item" href="#one!"><img src="images/123.jpg"></a>
-      </div>
-</body>
+</div>
+<div class="row">
+    <div class="events-container">
+        <h4 class="center black-text">Events</h4>
+        <div class="row">
+            {% for event in result.BulletinEvents %}
+            <div class="col s12 m6 l4">
+                <div class="card small grey darken-4 org-event">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class = "activator" src="/images/events/{{event.title}}/{{event.banner}}">
+                    </div>
+                    <div class="card-content white-text">
+                        <span class="card-title white-text">{{event.title}}</span>
+                    </div>
+                    <div class="card-action">
+                        <a href="/event/{{event.id}}">Go To Event Page!</a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <h4>No Events Yet!</h4>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
