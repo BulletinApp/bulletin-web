@@ -1,0 +1,62 @@
+*{
+    font-family: Roboto;
+}
+
+.fixed-action-btn{
+    bottom: 50%;
+}
+
+.side-nav{
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.4)!important;
+}
+
+#image_div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#org_image{
+    width: 100px;
+    height: 100px;
+}
+
+.name{
+    font-family: Oswald;
+    font-size: 30px!important;
+}
+
+.description{
+    font-family: Roboto-Condensed!important;
+    font-size: 18px!important;
+}
+
+.desc-labels{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#image_div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#org_image{
+    width: 100px;
+    height: 100px;
+}
+
+.name{
+    font-family: Oswald;
+    font-size: 30px!important;
+}
+
+.description{
+    font-family: Roboto-Condensed!important;
+    font-size: 18px!important;
+}
+
+.desc-labels{
+    font-size: 15px;
+    font-weight: bold;
+}

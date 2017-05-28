@@ -20,9 +20,34 @@ router.get('/events', function(req, res, next) {
     res.render('events', {result});
   });
 });
+router.get('/event/:eventId', function(req,res){
+    var eventId = req.params.eventId;
+    models.BulletinEvent.findOne({
+        where: {
+            id: eventId
+        },
+        include: [ models.Organization ]
+    }).then(result => {
+        console.log(result);
+        console.log(result.Organization);
+        res.render('event', {result});
+    });
+});
 
 router.get('/register', function(req, res, next) {
     res.render('register', { title: 'Nigguh'});
+});
+
+router.post('/register/submit', function(req, res, next) {
+    var org_name = req.body.org_name,
+        date_established = req.body.date_established,
+        photo = req.body.photo,
+        password = req.body.password,
+        contact_person = req.body.contact_person,
+        contact_number = req.body.contact_number,
+        email = req.body.email,
+        description = req.body.description;
+    res.redirect('/login');
 });
 
 router.get('/login', function(req, res, next) {
