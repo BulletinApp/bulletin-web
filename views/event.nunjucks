@@ -9,10 +9,10 @@
     <ul class="slides">
         <li>
             <img src="/images/events/{{result.title}}/index-parallax.jpg" alt="">
-            <div class="caption left-align">
+            {# <div class="caption left-align">
                 <h3>{{result.title}}</h3>
                 <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>
-            </div>
+            </div> #}
         </li>
     </ul>
     <div class="fixed-action-btn click-to-toggle">
@@ -22,18 +22,20 @@
     </div>
     <div class="">
         <ul id="slide-out" class="side-nav">
-            <li><div class="userView center">
-                <div id = "image_div">
-                    <img id = "org_image" class="circle" width ="150px" height="150px" src="/images/orglogo.png">
+            <li>
+                <div class="userView center">
+                    <div id = "image_div">
+                        <img id = "org_image" class="circle" width ="150px" height="150px" src="/images/orglogo.png">
+                    </div>
+                    <a href="#!name"><span class="white-text name">{{result.title}}</span></a>
+                    <a><span class="white-text">{{result.date}}</span></a>
+                    <br>
+                    <a><span class="white-text description">{{result.description}}</span></a>
                 </div>
-                <a href="#!name"><span class="white-text name">{{event.Organization.name}}</span></a>
-                <a href="#!email"><span class="white-text email">{{event.Organization.email}}</span></a>
-            </div></li>
-            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-            <li><a href="#!">Second Link</a></li>
-            <li><div class="divider"></div></li>
-            <li><a class="subheader">Subheader</a></li>
-            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            </li>
+            <li><a href="#!"><span class = "desc-labels">Organizer: </span>{{result.Organizer.name}}</a></li>
+            <li><a><span class = "desc-labels">Email: </span>{{result.Organizer.email}}</a></li>
+            <li><a><span class = "desc-labels">Entrance Fee: </span>{{result.fee}}</a></li>
         </ul>
     </div>
 </div>
