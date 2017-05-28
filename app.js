@@ -9,7 +9,6 @@ var passport = require('passport');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var session = require('express-session');
-var flash = require('express-flash');
 
 var app = express();
 
