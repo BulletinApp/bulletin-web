@@ -1,0 +1,4 @@
+{% extends "base.nunjucks" %}
+{% block content %}
+You have logged out
+{% endblock %}

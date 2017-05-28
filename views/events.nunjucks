@@ -6,8 +6,13 @@
     </head>
     <body>
       events
-      {% for event in result %}
+      {% for event in result.data %}
         {{event.dataValues.title}}
       {% endfor %}
+      <br>
+      username
+      {{result.name}}
+      <br>
+      <a href="/logout">logout</a>
     </body>
 </html>
