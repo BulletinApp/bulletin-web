@@ -9,26 +9,28 @@
     <div class="col s12 m2 l3"></div>
     <div class="col s12 m8 l6">
         <div class="container z-depth-5" id="box">
+          <form method="post" action="/login">
             <div class="row">
                 <h3 class="center">LOGIN</h3>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="username" type="text" class="validate">
+                    <input id="username" type="text" class="validate" name="username">
                     <label for="username">Username</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
+                    <input id="password" type="password" class="validate" name="password">
                     <label for="password">Password</label>
                 </div>
             </div>
             <div class="row">
                 <div class="s12 center">
-                    <button class="waves-effect waves-light btn-large yellow lighten-4" id="submit">SUBMIT</button>
+                    <button class="waves-effect waves-light btn-large yellow lighten-4" id="submit" type="submit">SUBMIT</button>
                 </div>
             </div>
+          </form>
         </div>
     </div>
     <div class="col s12 m2 l3"></div>
