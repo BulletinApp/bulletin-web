@@ -12,31 +12,109 @@
             <div class="row">
                 <h3 class="center">CREATE EVENT</h3>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="event_name" type="text" class="validate">
-                    <label for="event_name">Event Name</label>
+            <form method="post">
+                <div class="row">
+                    <div class="col s12 center">
+                        <img class="circle" id="banner" src="https://tickera-wpsalad.netdna-ssl.com/wp-content/themes/tickera/style/img/freebies/icons/events/4.png?x34982" width="200px" height="200px">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="event_date" type="date" class="datepicker validate">
-                    <label for="event_date">Event Date</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="event_name">Event Banner</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="description" type="text" class="materialize-textarea validate"></textarea>
-                    <label for="description">Short Description</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <form action="#">
+                            <div class="file-field input-field">
+                                <div id="submit" class="btn amber lighten-3">
+                                    <span>Choose File</span>
+                                    <input id="upload-btn" type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="s12 center">
-                    <button class="waves-effect waves-light btn-large yellow lighten-4" id="submit">SUBMIT</button>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="event_name" type="text" class="validate">
+                        <label for="event_name">Event Name</label>
+                    </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="event_date" type="date" class="datepicker validate">
+                        <label for="event_date">Event Date</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                        <label id="organizer">Organizer</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="description" type="text" class="materialize-textarea validate"></textarea>
+                        <label for="description">Short Description</label>
+                    </div>
+                </div>
+                {# <div class="row">
+                    <div class="input-field col s12">
+                        <input id="location" type="text" class="validate">
+                        <label for="location">Event Location</label>
+                    </div>
+                </div> #}
+                <div class="row">
+                    <div class="input-field col s6">
+                        <div class="switch">
+                            <label>
+                              Minor Event
+                              <input type="checkbox">
+                              <span class="lever"></span>
+                              Major Event
+                            </label>
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <div class="switch">
+                            <label>
+                              Without Fee
+                              <input type="checkbox">
+                              <span class="lever"></span>
+                              With Fee
+                            </label>
+                          </div>
+                    </div>
+                    <div class="input-field col s6">
+                        <input disabled id="fee" type="number" class="validate" min="1">
+                        <label for="location">Event Fee</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="s12 center">
+                        <button class="waves-effect waves-light btn-large yellow darken-1" id="submit">SUBMIT</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="col s12 m2 l3"></div>
 </div>
+{% endblock %}
+
+
+{% block scripts %}
+<script src = "javascripts/create-event.js"></script>
 {% endblock %}

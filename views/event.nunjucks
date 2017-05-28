@@ -1,0 +1,50 @@
+{% extends "base.nunjucks" %}
+
+{% block styles%}
+<link rel="stylesheet" href="/stylesheets/event.css">
+{% endblock %}
+
+{% block content %}
+<div class="slider fullscreen">
+    <ul class="slides">
+        <li>
+            <img src="/images/events/{{result.title}}/index-parallax.jpg" alt="">
+            {# <div class="caption left-align">
+                <h3>{{result.title}}</h3>
+                <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>
+            </div> #}
+            <div class="caption left-align">
+                <h3>{{result.title}}</h3>
+                <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>
+            </div>
+            {# <div class="caption left-align">
+                <h3>{{result.title}}</h3>
+                <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>
+            </div> #}
+        </li>
+    </ul>
+    <div class="fixed-action-btn click-to-toggle">
+        <a class="btn-floating btn-large transparent button-collapse" data-activates="slide-out">
+            <i class="material-icons">keyboard_arrow_left</i>
+        </a>
+    </div>
+    <div class="">
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="userView center">
+                    <div id = "image_div">
+                        <img id = "org_image" class="circle" width ="150px" height="150px" src="/images/orglogo.png">
+                    </div>
+                    <a href="#!name"><span class="white-text name">{{result.title}}</span></a>
+                    <a><span class="white-text">{{result.date}}</span></a>
+                    <br>
+                    <a><span class="white-text description">{{result.description}}</span></a>
+                </div>
+            </li>
+            <li><a href="#!"><span class = "desc-labels">Organizer: </span>{{result.Organization.name}}</a></li>
+            <li><a><span class = "desc-labels">Email: </span>{{result.Organization.email}}</a></li>
+            <li><a><span class = "desc-labels">Entrance Fee: </span>{{result.fee}}</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

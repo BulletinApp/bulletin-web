@@ -20,6 +20,19 @@ router.get('/events', function(req, res, next) {
     res.render('events', {result});
   });
 });
+router.get('/event/:eventId', function(req,res){
+    var eventId = req.params.eventId;
+    models.BulletinEvent.findOne({
+        where: {
+            id: eventId
+        },
+        include: [ models.Organization ]
+    }).then(result => {
+        console.log(result);
+        console.log(result.Organization);
+        res.render('event', {result});
+    });
+});
 
 router.get('/register', function(req, res, next) {
     res.render('register', { title: 'Nigguh'});
