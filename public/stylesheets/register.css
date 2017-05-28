@@ -1,0 +1,14 @@
+#box {
+    padding: 3em;
+    background: #212121;
+    margin-top: 3em;
+    color: white;
+}
+
+#submit, #upload {
+    color: black;
+}
+
+body {
+    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/d8/21/18/d82118622556ca08f26d20e45856029a.jpg");
+}
