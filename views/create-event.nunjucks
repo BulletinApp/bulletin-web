@@ -77,6 +77,17 @@
                     <div class="input-field col s6">
                         <div class="switch">
                             <label>
+                              Minor Event
+                              <input type="checkbox">
+                              <span class="lever"></span>
+                              Major Event
+                            </label>
+                          </div>
+                    </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <div class="switch">
+                            <label>
                               Without Fee
                               <input type="checkbox">
                               <span class="lever"></span>
