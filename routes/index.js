@@ -37,6 +37,7 @@ router.get('/events', function(req, res, next) {
     res.render('events', {result});
   });
 });
+
 router.get('/event/:eventId', function(req,res){
     var eventId = req.params.eventId;
     models.BulletinEvent.findOne({
@@ -49,20 +50,43 @@ router.get('/event/:eventId', function(req,res){
     });
 });
 
-router.get('/register', function(req, res, next) {
+router.get('/register/', function(req, res, next) {
     res.render('register', { title: 'Nigguh'});
 });
 
 router.post('/register/submit', function(req, res, next) {
     var org_name = req.body.org_name,
         date_established = req.body.date_established,
-        photo = req.body.photo,
-        password = req.body.password,
+        logo = req.body.logo,
+        coverphoto = req.body.coverphoto,
+        password = bcrypt.hashSync(req.body.password),
         contact_person = req.body.contact_person,
         contact_number = req.body.contact_number,
         email = req.body.email,
         description = req.body.description;
-    res.redirect('/login');
+
+    models.Organization.findOrCreate({
+        where: {
+            email: email
+        },
+        defaults: {
+            name: org_name,
+            logo: logo,
+            coverphoto: coverphoto,
+            established: date_established,
+            contactDetails: contact_number,
+            contactPerson: contact_person,
+            description: description,
+            password: password
+        }
+    }).spread(function (organization, created) {
+        console.log(organization.dataValues);
+        if(created) {
+            res.redirect('/login');
+        } else {
+            return false;
+        }
+    });
 });
 
 router.get('/login', function(req, res, next) {
