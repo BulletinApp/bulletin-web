@@ -1,8 +1,18 @@
-{% extends "base.nunjucks" %}
-
-{% block content %}
-
-    {% for event in result %}
-    <a class="waves-effect waves-light btn" href="/event/{{event.dataValues.id}}">{{event.dataValues.title}}</a>
-    {% endfor %}
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Home MADAFAKA</title>
+    </head>
+    <body>
+      events
+      {% for event in result.data %}
+        {{event.dataValues.title}}
+      {% endfor %}
+      <br>
+      username
+      {{result.name}}
+      <br>
+      <a href="/logout">logout</a>
+    </body>
+</html>

@@ -1,6 +1,7 @@
 var org_name = $('#org_name'),
     date_established = $('#date_established'),
-    photo = $('#photo'),
+    logo = $('#logo'),
+    coverphoto = $('#coverphoto'),
     password = $('#password'),
     password_confirm = $('#password_confirm'),
     contact_person = $('#contact_person'),
@@ -8,6 +9,11 @@ var org_name = $('#org_name'),
     email = $('#email'),
     description = $('#description');
 var isComplete = true;
+var pathname = window.location.pathname;
+
+if(~pathname.indexOf("email-error")) {
+    email.addClass('invalid').removeClass('validate');
+}
 
 $('#password, #password_confirm').on('keyup', function () {
     if (password.val() == password_confirm.val()) {
@@ -19,7 +25,7 @@ $('#password, #password_confirm').on('keyup', function () {
     }
 });
 
-$('#password, #org_name, #photo, #contact_person, #contact_number, #email, #description').on('focus', function () {
+$('#password, #org_name, #logo, #coverphoto, #contact_person, #contact_number, #email, #description').on('focus', function () {
     $(':focus').removeClass('invalid').addClass('validate');
 });
 
@@ -38,8 +44,13 @@ $('#submit').click(function (e) {
         isComplete = false; // or e.preventdefault();
     }
 
-    if (photo.val() == '') {
-        photo.addClass('invalid').removeClass('validate');
+    if (logo.val() == '') {
+        logo.addClass('invalid').removeClass('validate');
+        isComplete = false; // or e.preventdefault();
+    }
+
+    if (coverphoto.val() == '') {
+        coverphoto.addClass('invalid').removeClass('validate');
         isComplete = false; // or e.preventdefault();
     }
 

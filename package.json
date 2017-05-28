@@ -6,14 +6,19 @@
     "start": "node node_modules/.bin/nodemon -e js,html,nunjucks,css ./bin/www"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.3",
     "materialize-css": "^0.98.2",
     "morgan": "~1.8.1",
     "nodemon": "^1.11.0",
     "nunjucks": "^3.0.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "sequelize-cli": "~2.7.0",
     "serve-favicon": "~2.4.2",
     "sqlite3": "^3.1.8"
