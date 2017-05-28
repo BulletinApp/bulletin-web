@@ -34,7 +34,20 @@ router.post('/register/submit', function(req, res, next) {
         contact_number = req.body.contact_number,
         email = req.body.email,
         description = req.body.description;
-    res.redirect('/login');
+
+    models.Organization.create({
+        name: org_name,
+        logo: photo,
+        established: date_established,
+        contactDetails: contact_number,
+        contactPerson: contact_person,
+        description: description,
+        email: email,
+        password: password
+    }).then(function (insertedOrganization) {
+        console.log(insertedOrganization.dataValues);
+        res.redirect('/login');
+    });
 });
 
 router.get('/login', function(req, res, next) {
