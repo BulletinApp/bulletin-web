@@ -9,18 +9,10 @@
     <ul class="slides">
         <li>
             <img src="/images/events/{{result.title}}/{{result.banner}}" alt="">
-            {# <div class="caption left-align">
-                <h3>{{result.title}}</h3>
-                <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>
-            </div> #}
             <div class="caption left-align">
                 <h3>{{result.title}}</h3>
                 <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>
             </div>
-            {# <div class="caption left-align">
-                <h3>{{result.title}}</h3>
-                <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>
-            </div> #}
         </li>
     </ul>
     <div class="fixed-action-btn click-to-toggle">
@@ -36,7 +28,8 @@
                         <img id = "org_image" class="circle" src="/images/orgs/{{result.Organization.email}}/{{result.Organization.logo}}">
                     </div>
                     <a href="#!name"><span class="white-text name">{{result.title}}</span></a>
-                    <a><span class="white-text">{{result.date}}</span></a>
+                    <a><span class="white-text">{{result.date}} @</span></a>
+                    <a href="#"><span class="white-text">{{result.location}}</span></a>
                     <br>
                     <a><span class="white-text description">{{result.description}}</span></a>
                 </div>
