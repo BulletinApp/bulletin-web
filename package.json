@@ -8,10 +8,10 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
-    "connect-flash-plus": "^0.2.1",
     "cookie-parser": "^1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "express-flash": "0.0.2",
     "express-session": "^1.15.3",
     "materialize-css": "^0.98.2",
     "morgan": "~1.8.1",
