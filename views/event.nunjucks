@@ -8,7 +8,7 @@
 <div class="slider fullscreen">
     <ul class="slides">
         <li>
-            <img src="/images/events/{{result.title}}/index-parallax.jpg" alt="">
+            <img src="/images/events/{{result.title}}/{{result.banner}}" alt="">
             {# <div class="caption left-align">
                 <h3>{{result.title}}</h3>
                 <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>
@@ -33,7 +33,7 @@
             <li>
                 <div class="userView center">
                     <div id = "image_div">
-                        <img id = "org_image" class="circle" width ="150px" height="150px" src="/images/orglogo.png">
+                        <img id = "org_image" class="circle" src="/images/orgs/{{result.Organization.email}}/{{result.Organization.logo}}">
                     </div>
                     <a href="#!name"><span class="white-text name">{{result.title}}</span></a>
                     <a><span class="white-text">{{result.date}}</span></a>
@@ -41,7 +41,7 @@
                     <a><span class="white-text description">{{result.description}}</span></a>
                 </div>
             </li>
-            <li><a href="#!"><span class = "desc-labels">Organizer: </span>{{result.Organization.name}}</a></li>
+            <li><a href="/profile/{{result.Organization.id}}"><span class = "desc-labels">Organizer: </span>{{result.Organization.name}}</a></li>
             <li><a><span class = "desc-labels">Email: </span>{{result.Organization.email}}</a></li>
             <li><a><span class = "desc-labels">Entrance Fee: </span>{{result.fee}}</a></li>
         </ul>

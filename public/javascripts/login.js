@@ -1,0 +1,16 @@
+$(document).ready(function(){
+  $('#username').change(function(){
+    console.log("changed");
+    if($('#username').val()==""||$('#password').val()=="")
+    $('#submit').attr("disabled","disabled");
+  else
+    $('#submit').removeAttr("disabled");
+  });
+  $('#password').change(function(){
+    console.log("changed");
+    if($('#username').val()==""||$('#password').val()=="")
+      $('#submit').attr("disabled","disabled");
+    else
+      $('#submit').removeAttr("disabled");
+  });
+});

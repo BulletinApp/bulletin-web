@@ -5,11 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
-
+var passport = require('passport');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var session = require('express-session');
+var flash = require('express-flash');
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,6 +21,18 @@ nunjucks.configure('views', {
   autoescape: true,
   express: app
 });
+
+
+//passport session flash
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+
+app.use(passport.session());
+app.use(flash());
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

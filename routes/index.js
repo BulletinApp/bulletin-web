@@ -1,21 +1,37 @@
 var express = require('express');
 var models = require('../models');
+var passport = require('passport');
+var passportLocal = require('passport-local');
+var LocalStrategy = require('passport-local').Strategy;
+var bcrypt = require('bcrypt-nodejs');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     models.BulletinEvent.findAll().then(events =>{
-
         res.render('index', { events });
     });
 });
 
-router.get('/profile', function(req, res, next) {
-    res.render('profile', { title: 'Nigguh'});
+router.get('/profile/:orgId', function(req, res, next) {
+    var orgId = req.params.orgId;
+    models.Organization.findOne({
+        where: {
+            id:orgId
+        },
+        include: [ models.BulletinEvent ]
+    }).then(result => {
+        console.log(result);
+        res.render('profile', {result})
+    });
 });
 
 router.get('/events', function(req, res, next) {
-  models.BulletinEvent.findAll().then(result => {
+  models.BulletinEvent.findAll({where:{id:req.user.id}}).then(data => {
+    result = {
+      name:req.user.name,
+      data:data
+    }
     console.log(result);
     res.render('events', {result});
   });
@@ -28,8 +44,6 @@ router.get('/event/:eventId', function(req,res){
         },
         include: [ models.Organization ]
     }).then(result => {
-        console.log(result);
-        console.log(result.Organization);
         res.render('event', {result});
     });
 });
@@ -51,7 +65,7 @@ router.post('/register/submit', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'Nigguh'});
+    res.render('login', { message: req.flash('message')});
 });
 
 router.get('/create-event', function(req, res, next) {
@@ -68,5 +82,62 @@ router.get('/create-event', function(req, res, next) {
 //         fee = req.body.fee;
 //     res.redirect('/events');
 // });
+
+//passport things
+passport.use(new LocalStrategy({passReqToCallback:true},
+  function(req,username, password, done) {
+    console.log(username);
+    var isValidPassword = function(userpass, password) {
+      console.log(bcrypt.hashSync(userpass));
+      return bcrypt.compareSync(password,userpass);
+    }
+    models.Organization.findOne({where:{ email: username }}).then(
+      function (user) {
+        console.log("from database user:"+user);
+        if (!user) {
+          console.log("incorrect username")
+          return done(null, false, req.flash('message',"User does not exist."));
+        }
+        if (!isValidPassword(user.password,password)) {
+          console.log("incorrect password")
+          return done(null, false, req.flash('message',"Incorrect password."));
+        }
+        var userinfo = user.get();
+        console.log("success"+user);
+        return done(null, userinfo);
+    }).catch(
+      function(err) {
+          console.log("Error:", err);
+          return done(null, false, {message: 'Something went wrong with your Signin'});
+      });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+passport.deserializeUser(function(id, done) {
+    models.Organization.findById(id).then(function(user) {
+        if (user) {
+            done(null, user.get());
+        } else {
+            done(user.errors, null);
+        }
+    });
+});
+
+router.post('/login',
+  passport.authenticate('local', {
+    successRedirect: '/events',
+    failureRedirect: '/login',
+    failureFlash: true
+   })
+);
+
+router.get('/logout', function(req, res, next) {
+  req.logout();
+  res.render('logout');
+});
+
 
 module.exports = router;

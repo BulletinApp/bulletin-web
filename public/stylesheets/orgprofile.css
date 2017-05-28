@@ -1,0 +1,46 @@
+*{
+    font-family: Roboto-Condensed;
+    color: rgba(250,235,215,1);
+}
+
+.parallax-container,
+.main-details{
+    height: 470px;
+}
+
+.cover-photo{
+    filter: blur(4px);
+    width: 100%;
+}
+
+.info-box{
+    padding-left: 125px;
+    padding-right: 125px;
+}
+
+.info{
+    font-size: 20px;
+}
+
+.info2{
+    font-size: 16px;
+}
+
+.events-container{
+    margin: 20px;
+    padding: 5px 10px 5px 10px;
+}
+
+#profile_image_div{
+    padding-top: 80px;
+}
+
+#profile_image{
+    margin: 0 auto;
+}
+
+#profile_name{
+    font-weight:bolder;
+    padding: 5px 0px 5px 0px!important;
+    margin: 0px;
+}

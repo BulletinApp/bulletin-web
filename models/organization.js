@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Organization = sequelize.define('Organization', {
     name: DataTypes.STRING,
     logo: DataTypes.STRING,
+    coverphoto:DataTypes.STRING,
     established: DataTypes.DATE,
     contactDetails: DataTypes.STRING,
     contactPerson: DataTypes.STRING,

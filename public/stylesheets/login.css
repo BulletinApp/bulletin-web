@@ -4,7 +4,13 @@
     margin-top: 3em;
     color: white;
 }
-
+.error-message{
+  display: table-cell;
+  vertical-align: middle;
+}
+.error-message-div{
+  display: table;
+}
 #submit {
     color: black;
 }
