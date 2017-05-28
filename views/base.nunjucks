@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <title></title>
-        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="stylesheets/materialize.min.css">
         <link rel="stylesheet" href="stylesheets/style.css">
         {% block styles %}
-        {% endblock %}
+        {% endblock %}">
     </head>
     <body>
         {% block content %}
