@@ -20,21 +20,8 @@ router.get('/events', function(req, res, next) {
     res.render('events', {result});
   });
 });
-router.get('/event/:eventId', function(req,res){
-    var eventId = req.params.eventId;
-    models.BulletinEvent.findOne({
-        where: {
-            id: eventId
-        },
-        include: [ models.Organization ]
-    }).then(result => {
-        console.log(result);
-        console.log(result.Organization);
-        res.render('event', {result});
-    });
-});
 
-router.get('/register', function(req, res, next) {
+router.get('/register/:status', function(req, res, next) {
     res.render('register', { title: 'Nigguh'});
 });
 
@@ -48,18 +35,27 @@ router.post('/register/submit', function(req, res, next) {
         email = req.body.email,
         description = req.body.description;
 
-    models.Organization.create({
-        name: org_name,
-        logo: photo,
-        established: date_established,
-        contactDetails: contact_number,
-        contactPerson: contact_person,
-        description: description,
-        email: email,
-        password: password
-    }).then(function (insertedOrganization) {
-        console.log(insertedOrganization.dataValues);
-        res.redirect('/login');
+    models.Organization.findOrCreate({
+        where: {
+            email: email
+        },
+        defaults: {
+            name: org_name,
+            logo: photo,
+            established: date_established,
+            contactDetails: contact_number,
+            contactPerson: contact_person,
+            description: description,
+            password: password
+        }
+    }).spread(function (organization, created) {
+        console.log(organization.dataValues);
+        if(created) {
+            res.redirect('/login');
+        } else {
+
+            return false;
+        }
     });
 });
 
