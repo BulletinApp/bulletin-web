@@ -2,6 +2,10 @@
     font-family: Roboto;
 }
 
+.parallax-container{
+    height: 100vh;
+}
+
 .fixed-action-btn{
     bottom: 50%;
 }

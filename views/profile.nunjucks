@@ -6,6 +6,7 @@
 
 {% block content %}
 <div class="parallax-container">
+    {% include "navbar.nunjucks" %}
     <div class="parallax"><img class = "cover-photo"  src="/images/orgs/sc@gmail.com/sccover.png" alt=""></div>
     <div class="main-details center">
         <div  id = "profile_image_div">

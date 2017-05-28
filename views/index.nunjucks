@@ -6,23 +6,7 @@
 
 {% block content %}
 <div class="parallax-container">
-    <nav class="z-depth-0">
-        <div class="nav-wrapper">
-            <a href="#" data-activates="mobile-mode" class="button-collapse right"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a class = "emphasize-text" href="sass.html">Bulletin</a></li>
-                <li><a href="badges.html">Calendars</a></li>
-                <li><a href="collapsible.html">Events</a></li>
-                <li><a href="#">Orgs</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-mode">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">Javascript</a></li>
-                <li><a href="mobile.html">Mobile</a></li>
-            </ul>
-        </div>
-    </nav>
+    {% include "navbar.nunjucks" %}
     <div class="parallax"><img src="images/index-parallax2.jpg"></div>
     <span></span>
 </div>
