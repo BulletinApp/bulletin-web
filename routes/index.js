@@ -13,8 +13,17 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/profile', function(req, res, next) {
-    res.render('profile', { title: 'Nigguh'});
+router.get('/profile/:orgId', function(req, res, next) {
+    var orgId = req.params.orgId;
+    models.Organization.findOne({
+        where: {
+            id:orgId
+        },
+        include: [ models.BulletinEvent ]
+    }).then(result => {
+        console.log(result);
+        res.render('profile', {result})
+    });
 });
 
 router.get('/events', function(req, res, next) {
@@ -35,8 +44,6 @@ router.get('/event/:eventId', function(req,res){
         },
         include: [ models.Organization ]
     }).then(result => {
-        console.log(result);
-        console.log(result.Organization);
         res.render('event', {result});
     });
 });
