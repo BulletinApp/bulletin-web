@@ -3,6 +3,10 @@
 <link rel="stylesheet" href="/stylesheets/orgprofile.css">
 {% endblock %}
 
+{% block styles %}
+<link rel="stylesheet" href="/stylesheets/orgprofile.css">
+{% endblock %}
+
 {% block content %}
 <div class="parallax-container">
     <div class="parallax"><img class = "cover-photo"  src="/images/orgs/sc@gmail.com/sccover.png" alt=""></div>
