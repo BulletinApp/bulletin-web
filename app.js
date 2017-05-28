@@ -10,6 +10,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var session = require('express-session');
 var flash = require('express-flash');
+var nunjucksDate = require('nunjucks-date-filter');
 
 var app = express();
 
@@ -51,6 +52,11 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+//nunjucks
+nunjucksDate.setDefaultFormat('MMM D');
+var env = new nunjucks.Environment();
+env.addFilter('date', nunjucksDate);
 
 // error handler
 app.use(function(err, req, res, next) {
