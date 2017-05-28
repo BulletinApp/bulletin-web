@@ -58,4 +58,15 @@ router.get('/create-event', function(req, res, next) {
     res.render('create-event', { title: 'Nigguh'});
 });
 
+// // router.post('/create-event/submit', function(req, res, next) {
+//     var event_name = req.body.event_name,
+//         event_date = req.body.event_date,
+//         banner = req.body.file_path,
+//         organizer = req.body.organizer,
+//         contact_person = req.body.contact_person,
+//         description = req.body.description,
+//         fee = req.body.fee;
+//     res.redirect('/events');
+// });
+
 module.exports = router;

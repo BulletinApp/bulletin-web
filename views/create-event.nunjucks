@@ -32,7 +32,7 @@
                                     <input id="upload-btn" type="file">
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
+                                    <input id="file-path" name="file-path" class="file-path validate" type="text">
                                 </div>
                             </div>
                         </form>
@@ -41,44 +41,44 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="event_name" type="text" class="validate">
+                        <input id="event_name" name="event_name" type="text" class="validate">
                         <label for="event_name">Event Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="event_date" type="date" class="datepicker validate">
+                        <input name="event_date" id="event_date" type="date" class="datepicker validate">
                         <label for="event_date">Event Date</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <select>
+                        <select  id="organizer" name="organizer">
                           <option value="1">Option 1</option>
                           <option value="2">Option 2</option>
                           <option value="3">Option 3</option>
                         </select>
-                        <label id="organizer">Organizer</label>
+                        <label for="organizer">Organizer</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="description" type="text" class="materialize-textarea validate"></textarea>
+                        <textarea name="description" id="description" type="text" class="materialize-textarea validate"></textarea>
                         <label for="description">Short Description</label>
                     </div>
                 </div>
-                {# <div class="row">
+                <div class="row">
                     <div class="input-field col s12">
-                        <input id="location" type="text" class="validate">
+                        <input name="location" id="location" type="text" class="validate">
                         <label for="location">Event Location</label>
                     </div>
-                </div> #}
+                </div>
                 <div class="row">
                     <div class="input-field col s6">
                         <div class="switch">
                             <label>
                               Minor Event
-                              <input type="checkbox">
+                              <input id="event_type" name="event_type" type="checkbox">
                               <span class="lever"></span>
                               Major Event
                             </label>
@@ -90,21 +90,21 @@
                         <div class="switch">
                             <label>
                               Without Fee
-                              <input type="checkbox">
+                              <input id="fee-switch" name="fee-switch" type="checkbox">
                               <span class="lever"></span>
                               With Fee
                             </label>
                           </div>
                     </div>
                     <div class="input-field col s6">
-                        <input disabled id="fee" type="number" class="validate" min="1">
-                        <label for="location">Event Fee</label>
+                        <input disabled id="fee" name="fee" type="number" class="validate" min="1">
+                        <label for="fee">Event Fee</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="s12 center">
-                        <button class="waves-effect waves-light btn-large yellow darken-1" id="submit">SUBMIT</button>
+                        <button class="waves-effect waves-light btn-large yellow darken-1" id="submit" name="submit">SUBMIT</button>
                     </div>
                 </div>
             </form>
