@@ -49,14 +49,15 @@ router.get('/event/:eventId', function(req,res){
     });
 });
 
-router.get('/register/:status', function(req, res, next) {
+router.get('/register/', function(req, res, next) {
     res.render('register', { title: 'Nigguh'});
 });
 
 router.post('/register/submit', function(req, res, next) {
     var org_name = req.body.org_name,
         date_established = req.body.date_established,
-        photo = req.body.photo,
+        logo = req.body.logo,
+        coverphoto = req.body.coverphoto,
         password = req.body.password,
         contact_person = req.body.contact_person,
         contact_number = req.body.contact_number,
@@ -82,7 +83,7 @@ router.post('/register/submit', function(req, res, next) {
         if(created) {
             res.redirect('/login');
         } else {
-            res.redirect('/register/email-error');
+            return false;
         }
     });
 });

@@ -9,11 +9,6 @@ var org_name = $('#org_name'),
     email = $('#email'),
     description = $('#description');
 var isComplete = true;
-var pathname = window.location.pathname;
-
-if(~pathname.indexOf("email-error")) {
-    email.addClass('invalid').removeClass('validate');
-}
 
 $('#password, #password_confirm').on('keyup', function () {
     if (password.val() == password_confirm.val()) {
