@@ -25,7 +25,20 @@ router.get('/profile/:orgId', function(req, res, next) {
         res.render('profile', {result})
     });
 });
-
+router.get('/calendar', function(req, res, next) {
+  models.BulletinEvent.findAll({
+    where:{date:{$gt:new Date()}},
+    order: '"date" DESC' ,
+    include: [ models.Organization ]
+  }).then(result => {
+    var monthname = ["Jan","Feb","March","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    for(i=0;i<result.length;i++){
+      result[i].dataValues.dateString=monthname[result[i].dataValues.date.getMonth()]+" "+(result[i].dataValues.date.getDate()-1);
+    }
+    console.log(result);
+    res.render('calendar', {result});
+  });
+});
 router.get('/events', function(req, res, next) {
   models.BulletinEvent.findAll({where:{id:req.user.id}}).then(data => {
     result = {

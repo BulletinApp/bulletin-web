@@ -1,0 +1,53 @@
+{% extends "base.nunjucks" %}
+
+{% block styles %}
+<link rel="stylesheet" href="stylesheets/calendar.css">
+<link rel="stylesheet" href="stylesheets/index.css">
+{% endblock %}
+
+{% block content %}
+<nav class="z-depth-0">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="mobile-mode" class="button-collapse right"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class = "emphasize-text" href="/">Bulletin</a></li>
+            <li><a href="/calendar">Calendars</a></li>
+            <li><a href="collapsible.html">Orgs</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s6 offset-s3">
+      <div class="row">
+        <div class="row forehead">
+        </div>
+        <h1>Upcoming Events</h1>
+      </div>
+{% for event in result %}
+        <div class="card small card-small card-black">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src={{event.dataValues.banner}} onerror="this.src='https://www.star.com.au/sydney/sites/default/files/thumbnails/image/The%20Star%20-%20The%20Event%20Centre%20-%20Banquet%20setup%20view.JPG'">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator white-text">{{event.dataValues.title}} at {{event.dataValues.dateString}}<i class="material-icons right">more_vert</i></span>
+            <p><a href="#">{{event.dataValues.Organization.name}}</a></p>
+          </div>
+          <div class="card-reveal grey-text text-darken-4">
+            <span class="card-title">{{event.dataValues.title}} at {{event.dataValues.location}}<i class="material-icons right">close</i></span>
+            <p>{{event.dataValues.description}}</p>
+            <p><a href="/event/:{{event.dataValues.id}}">Go to event page</a></p>
+          </div>
+        </div>
+{% endfor %}
+  </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="javascripts/calendar.js"></script>
+{% endblock %}
