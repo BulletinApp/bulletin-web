@@ -4,10 +4,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+<<<<<<< HEAD
     models.BulletinEvent.findAll().then(events =>{
 
         res.render('index', { events });
     });
+=======
+    res.render('index', { title: 'Express' });
+>>>>>>> commit to pull
 });
 
 router.get('/profile', function(req, res, next) {
