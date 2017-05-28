@@ -58,7 +58,7 @@ router.post('/register/submit', function(req, res, next) {
         date_established = req.body.date_established,
         logo = req.body.logo,
         coverphoto = req.body.coverphoto,
-        password = req.body.password,
+        password = bcrypt.hashSync(req.body.password),
         contact_person = req.body.contact_person,
         contact_number = req.body.contact_number,
         email = req.body.email,
