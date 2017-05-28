@@ -2,7 +2,8 @@ var express = require('express');
 var models = require('../models');
 var passport = require('passport');
 var passportLocal = require('passport-local');
-var LocalStrategy   = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
+var bcrypt = require('bcrypt-nodejs');
 var router = express.Router();
 
 /* GET home page. */
@@ -69,9 +70,10 @@ passport.use(new LocalStrategy({passReqToCallback:true},
   function(req,username, password, done) {
     console.log(username);
     var isValidPassword = function(userpass, password) {
-        return userpass==password;
+      console.log(bcrypt.hashSync(userpass));
+      return bcrypt.compareSync(password,userpass);
     }
-    models.Organization.findOne({where:{ name: username }}).then(
+    models.Organization.findOne({where:{ email: username }}).then(
       function (user) {
         console.log("from database user:"+user);
         if (!user) {
