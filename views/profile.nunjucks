@@ -1,16 +1,15 @@
 {% extends "base.nunjucks" %}
-
 {% block styles %}
 <link rel="stylesheet" href="/stylesheets/orgprofile.css">
 {% endblock %}
 
+
 {% block content %}
 <div class="parallax-container">
-    {% include "navbar.nunjucks" %}
-    <div class="parallax"><img class = "cover-photo"  src="/images/orgs/sc@gmail.com/sccover.png" alt=""></div>
+    <div class="parallax"><img class = "cover-photo"  src="/images/orgs/{{result.email}}/{{result.coverphoto}}"></div>
     <div class="main-details center">
         <div  id = "profile_image_div">
-            <img class = "circle" id = "profile_image" width= "150px" src="/images/orgs/sc@gmail.com/orglogo.png" alt="">
+            <img class = "circle" id = "profile_image" width= "150px" src="/images/orgs/{{result.email}}/{{result.logo}}" alt="">
         </div>
         <div class="info-box">
             <h4 id = "profile_name">{{result.name}}</h4>

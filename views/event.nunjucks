@@ -23,7 +23,8 @@
                         <img id = "org_image" class="circle" src="/images/orgs/{{result.Organization.email}}/{{result.Organization.logo}}">
                     </div>
                     <a href="#!name"><span class="white-text name">{{result.title}}</span></a>
-                    <a><span class="white-text">{{result.date}}</span></a>
+                    <a><span class="white-text">{{result.date}} @</span></a>
+                    <a href="#"><span class="white-text">{{result.location}}</span></a>
                     <br>
                     <a><span class="white-text description">{{result.description}}</span></a>
                 </div>
