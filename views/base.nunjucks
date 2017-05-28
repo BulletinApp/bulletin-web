@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="/stylesheets/materialize.min.css">
         <link rel="stylesheet" href="/stylesheets/style.css">
         {% block styles %}
-        {% endblock %}">
+        {% endblock %}
     </head>
     <body>
         {% block content %}
