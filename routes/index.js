@@ -17,7 +17,11 @@ router.get('/profile', function(req, res, next) {
 });
 
 router.get('/events', function(req, res, next) {
-  models.BulletinEvent.findAll().then(result => {
+  models.BulletinEvent.findAll({where:{id:req.user.id}}).then(data => {
+    result = {
+      name:req.user.name,
+      data:data
+    }
     console.log(result);
     res.render('events', {result});
   });
@@ -53,7 +57,7 @@ router.post('/register/submit', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'Nigguh'});
+    res.render('login', { message: req.flash('message')});
 });
 
 router.get('/create-event', function(req, res, next) {
@@ -61,8 +65,8 @@ router.get('/create-event', function(req, res, next) {
 });
 
 //passport things
-passport.use(new LocalStrategy(
-  function(username, password, done) {
+passport.use(new LocalStrategy({passReqToCallback:true},
+  function(req,username, password, done) {
     console.log(username);
     var isValidPassword = function(userpass, password) {
         return userpass==password;
@@ -72,11 +76,11 @@ passport.use(new LocalStrategy(
         console.log("from database user:"+user);
         if (!user) {
           console.log("incorrect username")
-          return done(null, false, { message: 'Incorrect username.' });
+          return done(null, false, req.flash('message',"User does not exist."));
         }
         if (!isValidPassword(user.password,password)) {
           console.log("incorrect password")
-          return done(null, false, { message: 'Incorrect password.' });
+          return done(null, false, req.flash('message',"Incorrect password."));
         }
         var userinfo = user.get();
         console.log("success"+user);
@@ -100,14 +104,16 @@ passport.deserializeUser(function(id, done) {
         }
     });
 });
-
 router.post('/login',
   passport.authenticate('local', {
     successRedirect: '/events',
     failureRedirect: '/login',
-    failureFlash: false
+    failureFlash: true
    })
 );
-
+router.get('/logout', function(req, res, next) {
+  req.logout();
+  res.render('logout');
+});
 
 module.exports = router;
