@@ -24,7 +24,7 @@ $("#upload-btn").change(function(){
     readURL(this);
 });
 
-$(".switch").change(function(){
+$("#fee_switch").change(function(){
     $("#fee").prop("disabled", !($("#fee").prop("disabled")));
 });
 
@@ -34,55 +34,18 @@ var event_name = $("#event_name"),
     banner = $("#file-path"),
     organizer = $("#organizer"),
     description = $("#description"),
-    location_ = $("#location"),
     event_type = $("#event_type"),
-    fee = $("#fee"),
+    fee = null,
     fee_switch = $("#fee_switch");
 
-var isComplete = true;
-// 
-// $('#submit').click(function (e) {
-//     if (event_name.val() == '') {
-//         event_name.addClass('invalid').removeClass('validate');
-//         isComplete = false; // or e.preventdefault();
-//     }
-//
-//     if (event_date.val() == '') {
-//         event_date.addClass('invalid').removeClass('validate');
-//         isComplete = false; // or e.preventdefault();
-//     }
-//
-//     if (banner.val() == '') {
-//         banner.addClass('invalid').removeClass('validate');
-//         isComplete = false; // or e.preventdefault();
-//     }
-//
-//     if (organizer.val() == '') {
-//         organizer.addClass('invalid').removeClass('validate');
-//         isComplete = false; // or e.preventdefault();
-//     }
-//
-//     if (description.val() == '') {
-//         description.addClass('invalid').removeClass('validate');
-//         isComplete = false; // or e.preventdefault();
-//     }
-//
-//     if (location_.val() == '') {
-//         location_.addClass('invalid').removeClass('validate');
-//         isComplete = false; // or e.preventdefault();
-//     }
-//
-//     if (event_type.val() == '') {
-//         event_type.addClass('invalid').removeClass('validate');
-//         isComplete = false; // or e.preventdefault();
-//     }
-//
-//     if (fee.prop("disabled")){
-//         fee = 0;
-//     } else {
-//         if (fee.val() == '') {
-//             fee.addClass('invalid').removeClass('validate');
-//             isComplete = false; // or e.preventdefault();
-//         }
-//     }
-// });
+if ($("#fee").prop("disabled")){
+    fee = "free";
+} else {
+    fee = $("#fee").toString();
+}
+
+if ($("#event_type").val("yes")){
+    event_type = 1;
+} else {
+    event_type = 0;
+}

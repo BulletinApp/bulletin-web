@@ -6,7 +6,6 @@ module.exports = function(sequelize, DataTypes) {
     description: DataTypes.TEXT,
     fee: DataTypes.STRING,
     banner: DataTypes.STRING,
-    location:DataTypes.STRING,
     big: DataTypes.BOOLEAN
   }, {
     classMethods: {

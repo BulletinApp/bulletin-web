@@ -5,6 +5,7 @@ var passportLocal = require('passport-local');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt-nodejs');
 var router = express.Router();
+var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -84,25 +85,30 @@ router.post('/create-event', function(req, res, next) {
         contact_person = req.body.contact_person,
         description = req.body.description,
         fee = req.body.fee;
+        location_ = req.body.location_,
+        event_type = req.body.event_type;
 
-    banner.mv('public/images/events/' + event_name + '/banner.jpg', function(err) {
+    var dir = 'public/images/events/' + event_name;
+    if(!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    }
+    banner.mv(dir + '/banner.jpg', function(err) {
         if (err) {
             throw err;
         } else {
-            res.redirect('/events');
+            models.BulletinEvent.build({
+                title: event_name,
+                date: event_date,
+                description: description,
+                fee: fee,
+                banner: dir + "/banner.jpg",
+                big: event_type
+            }).save().then(function(){
+                res.redirect('/events');
+            });
         }
     });
 
-    // models.BulletinEvent.build({
-    //     title: event_name,
-    //     date: event_date,
-    //     description: description,
-    //     fee = fee,
-    //
-    // });
-
-
-    res.redirect('/create-event');
 });
 
 //passport things
