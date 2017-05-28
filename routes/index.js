@@ -4,14 +4,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-<<<<<<< HEAD
+
     models.BulletinEvent.findAll().then(events =>{
 
         res.render('index', { events });
     });
-=======
+
     res.render('index', { title: 'Express' });
->>>>>>> commit to pull
+
 });
 
 router.get('/profile', function(req, res, next) {
@@ -27,6 +27,18 @@ router.get('/events', function(req, res, next) {
 
 router.get('/register', function(req, res, next) {
     res.render('register', { title: 'Nigguh'});
+});
+
+router.post('/register/submit', function(req, res, next) {
+    var org_name = req.body.org_name,
+        date_established = req.body.date_established,
+        photo = req.body.photo,
+        password = req.body.password,
+        contact_person = req.body.contact_person,
+        contact_number = req.body.contact_number,
+        email = req.body.email,
+        description = req.body.description;
+    res.redirect('/login');
 });
 
 router.get('/login', function(req, res, next) {
