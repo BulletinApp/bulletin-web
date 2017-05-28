@@ -5,12 +5,17 @@
 {% endblock %}
 
 {% block content %}
-<h1 id="validate-status"></h1>
 <div class="row">
-    <div class="col s12 m2 l3"></div>
-    <div class="container z-depth-5" id="box">
+    <form class="col s12">
         <div class="row">
-            <h3 class="center">REGISTER</h3>
+            <div class="input-field col s6">
+                <input id="org_name" type="text" class="validate">
+                <label for="org_name">Organization Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="date_established" type="date" class="datepicker">
+                <label for="date_established">Date Established</label>
+            </div>
         </div>
         <div class="row">
             <form class="col s12" action="/register/submit" method="post" name="register_form">
@@ -78,12 +83,25 @@
                     <div class="s12 center">
                         <input class="waves-effect waves-light btn-large yellow lighten-4" type="submit" value="Submit" id="submit">
                     </div>
-                </div>
-            </form>
+            <div class="input-field col s6">
+                <input id="contact_person" type="text" class="validate">
+                <label for="contact_person">Contact Person</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="contact_number" type="text" class="validate">
+                <label for="contact_number">Contact Number</label>
+            </div>
         </div>
-    </div>
-    <div class="col s12 m2 l3"></div>
+        <div class="row">
+            <div class="col s12">
+                This is an inline input field:
+                <div class="input-field inline">
+                    <input id="email" type="email" class="validate">
+                    <label for="email" data-error="wrong" data-success="right">Email</label>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
-<script src="javascripts/register.js"></script>
 {% endblock %}

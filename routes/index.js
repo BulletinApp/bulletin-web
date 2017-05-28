@@ -4,14 +4,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
     models.BulletinEvent.findAll().then(events =>{
 
         res.render('index', { events });
     });
-
-    res.render('index', { title: 'Express' });
-
 });
 
 router.get('/profile', function(req, res, next) {
@@ -38,7 +34,6 @@ router.post('/register/submit', function(req, res, next) {
         contact_number = req.body.contact_number,
         email = req.body.email,
         description = req.body.description;
-    console.log(description);
     res.redirect('/login');
 });
 
