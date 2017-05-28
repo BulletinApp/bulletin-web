@@ -12,7 +12,7 @@
             <div class="row">
                 <h3 class="center">CREATE EVENT</h3>
             </div>
-            <form method="post">
+            <form method="post" action="/create-event" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col s12 center">
                         <img class="circle" id="banner" src="https://tickera-wpsalad.netdna-ssl.com/wp-content/themes/tickera/style/img/freebies/icons/events/4.png?x34982" width="200px" height="200px">
@@ -25,17 +25,15 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <form action="#">
                             <div class="file-field input-field">
                                 <div id="submit" class="btn amber lighten-3">
                                     <span>Choose File</span>
-                                    <input id="upload-btn" type="file">
+                                    <input id="upload-btn" type="file" name="banner">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input id="file-path" name="file-path" class="file-path validate" type="text">
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
 
@@ -54,9 +52,9 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <select  id="organizer" name="organizer">
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
+                            {% for org in organizations %}
+                            <option value="{{ org.id }}">{{org.name}}</option>
+                            {% endfor %}
                         </select>
                         <label for="organizer">Organizer</label>
                     </div>
@@ -90,7 +88,7 @@
                         <div class="switch">
                             <label>
                               Without Fee
-                              <input id="fee-switch" name="fee-switch" type="checkbox">
+                              <input id="fee_switch" name="fee_switch" type="checkbox">
                               <span class="lever"></span>
                               With Fee
                             </label>
@@ -104,7 +102,7 @@
 
                 <div class="row">
                     <div class="s12 center">
-                        <button class="waves-effect waves-light btn-large yellow darken-1" id="submit" name="submit">SUBMIT</button>
+                        <button class="waves-effect waves-light btn-large yellow darken-1" id="submit" value="SUBMIT" type="submit">SUBMIT</button>
                     </div>
                 </div>
             </form>

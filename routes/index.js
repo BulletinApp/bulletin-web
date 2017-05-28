@@ -69,19 +69,41 @@ router.get('/login', function(req, res, next) {
 });
 
 router.get('/create-event', function(req, res, next) {
-    res.render('create-event', { title: 'Nigguh'});
+    models.Organization.findAll({}).then(
+        result => {
+            res.render('create-event', { organizations: result});
+        }
+    );
 });
 
-// // router.post('/create-event/submit', function(req, res, next) {
-//     var event_name = req.body.event_name,
-//         event_date = req.body.event_date,
-//         banner = req.body.file_path,
-//         organizer = req.body.organizer,
-//         contact_person = req.body.contact_person,
-//         description = req.body.description,
-//         fee = req.body.fee;
-//     res.redirect('/events');
-// });
+router.post('/create-event', function(req, res, next) {
+    var event_name = req.body.event_name,
+        event_date = req.body.event_date,
+        banner = req.files.banner,
+        organizer = req.body.organizer,
+        contact_person = req.body.contact_person,
+        description = req.body.description,
+        fee = req.body.fee;
+
+    banner.mv('public/images/events/' + event_name + '/banner.jpg', function(err) {
+        if (err) {
+            throw err;
+        } else {
+            res.redirect('/events');
+        }
+    });
+
+    // models.BulletinEvent.build({
+    //     title: event_name,
+    //     date: event_date,
+    //     description: description,
+    //     fee = fee,
+    //
+    // });
+
+
+    res.redirect('/create-event');
+});
 
 //passport things
 passport.use(new LocalStrategy({passReqToCallback:true},

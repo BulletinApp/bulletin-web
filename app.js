@@ -10,6 +10,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var session = require('express-session');
 var flash = require('express-flash');
+var fileupload = require('express-fileupload');
 
 var app = express();
 
@@ -22,6 +23,7 @@ nunjucks.configure('views', {
   express: app
 });
 
+app.use(fileupload());
 
 //passport session flash
 app.use(session({
