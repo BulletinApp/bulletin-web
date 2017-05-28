@@ -1,6 +1,4 @@
 {% extends "base.nunjucks" %}
-
-<<<<<<< 410439c623739cdad03d5f1670da896c3e6e16db
 {% block styles %}
 <link rel="stylesheet" href="/stylesheets/orgprofile.css">
 {% endblock %}
