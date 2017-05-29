@@ -12,7 +12,7 @@
             <div class="row">
                 <h3 class="center">CREATE EVENT</h3>
             </div>
-            <form method="post" action="/create-event" enctype="multipart/form-data">
+            <form method="post">
                 <div class="row">
                     <div class="col s12 center">
                         <img class="circle" id="banner" src="https://tickera-wpsalad.netdna-ssl.com/wp-content/themes/tickera/style/img/freebies/icons/events/4.png?x34982" width="200px" height="200px">
@@ -25,49 +25,51 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
+                        <form action="#">
                             <div class="file-field input-field">
                                 <div id="submit" class="btn amber lighten-3">
                                     <span>Choose File</span>
-                                    <input id="upload-btn" type="file" name="banner">
+                                    <input id="upload-btn" type="file">
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input id="file-path" name="file-path" class="file-path validate" type="text">
+                                    <input class="file-path validate" type="text">
                                 </div>
                             </div>
+                        </form>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="event_name" name="event_name" type="text" class="validate">
+                        <input id="event_name" type="text" class="validate">
                         <label for="event_name">Event Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input name="event_date" id="event_date" type="date" class="datepicker validate">
+                        <input id="event_date" type="date" class="datepicker validate">
                         <label for="event_date">Event Date</label>
                     </div>
                 </div>
-                <div class="row">
+                {# <div class="row">
                     <div class="input-field col s12">
-                        <select  id="organizer" name="organizer">
-                            {% for org in organizations %}
-                            <option value="{{ org.id }}">{{org.name}}</option>
-                            {% endfor %}
+                        <select>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
                         </select>
-                        <label for="organizer">Organizer</label>
+                        <label id="organizer">Organizer</label>
                     </div>
-                </div>
+                </div> #}
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea name="description" id="description" type="text" class="materialize-textarea validate"></textarea>
+                        <textarea id="description" type="text" class="materialize-textarea validate"></textarea>
                         <label for="description">Short Description</label>
                     </div>
                 </div>
                 {# <div class="row">
                     <div class="input-field col s12">
-                        <input name="location" id="location" type="text" class="validate">
+                        <input id="location" type="text" class="validate">
                         <label for="location">Event Location</label>
                     </div>
                 </div> #}
@@ -76,7 +78,7 @@
                         <div class="switch">
                             <label>
                               Minor Event
-                              <input id="event_type" name="event_type" type="checkbox">
+                              <input type="checkbox">
                               <span class="lever"></span>
                               Major Event
                             </label>
@@ -88,21 +90,21 @@
                         <div class="switch">
                             <label>
                               Without Fee
-                              <input id="fee_switch" name="fee_switch" type="checkbox">
+                              <input type="checkbox">
                               <span class="lever"></span>
                               With Fee
                             </label>
                           </div>
                     </div>
                     <div class="input-field col s6">
-                        <input disabled id="fee" name="fee" type="number" class="validate" min="1">
-                        <label for="fee">Event Fee</label>
+                        <input disabled id="fee" type="number" class="validate" min="1">
+                        <label for="location">Event Fee</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="s12 center">
-                        <button class="waves-effect waves-light btn-large yellow darken-1" id="submit" value="SUBMIT" type="submit">SUBMIT</button>
+                        <button class="waves-effect waves-light btn-large yellow darken-1" id="submit">SUBMIT</button>
                     </div>
                 </div>
             </form>

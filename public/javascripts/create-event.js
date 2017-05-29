@@ -34,18 +34,29 @@ var event_name = $("#event_name"),
     banner = $("#file-path"),
     organizer = $("#organizer"),
     description = $("#description"),
-    event_type = $("#event_type"),
+    event_type = null,
     fee = null,
     fee_switch = $("#fee_switch");
 
-if ($("#fee").prop("disabled")){
-    fee = "free";
-} else {
-    fee = $("#fee").toString();
-}
+$("input[name=fee_group]").on('change', function(){
+        $("#fee").prop("disabled", !($("#fee").prop("disabled")));
+});
 
-if ($("#event_type").val("yes")){
-    event_type = 1;
-} else {
-    event_type = 0;
-}
+$("#submit").click(function(){
+    event_type = $("input[name='type_group']:checked").val();
+    if(event_type == "yes"){
+        event_type = 1;
+    } else {
+        event_type = 0;
+    }
+    console.log(event_type)
+
+    fee = $("input[name='fee_group']:checked").val();
+    if(fee=="with_fee"){
+        fee = $("#fee").val().toString();
+    } else {
+        fee = "free";
+    }
+    console.log(fee)
+
+});

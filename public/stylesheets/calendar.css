@@ -1,0 +1,25 @@
+.card-black{
+  background: #212121;
+  color: white;
+}
+.white-text{
+  color: white;
+}
+.forehead{
+  height: 150px;
+}
+.container  {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.container .row {
+  margin: 0 auto;
+}
+body {
+  color: white;
+    background-image: url("http://wallpaper-gallery.net/images/wallpaper-black-texture/wallpaper-black-texture-27.jpg");
+}
