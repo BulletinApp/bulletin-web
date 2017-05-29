@@ -8,7 +8,7 @@
 <div class="slider fullscreen">
     <ul class="slides">
         <li>
-            <img src="/images/events/{{result.title}}/{{result.banner}}" alt="">
+            <img src="/{{result.banner}}" alt="">
             <div class="caption left-align">
                 <h3>{{result.title}}</h3>
                 <h5 class="light grey-text text-lighten-3">{{result.description}}</h5>

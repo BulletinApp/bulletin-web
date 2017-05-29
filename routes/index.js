@@ -115,15 +115,17 @@ router.get('/create-event', function(req, res, next) {
 });
 
 router.post('/create-event', function(req, res, next) {
+
+    console.log(req.files);
     var event_name = req.body.event_name,
         event_date = req.body.event_date,
         banner = req.files.banner,
         organizer = req.user.id,
         contact_person = req.body.contact_person,
         description = req.body.description,
-        fee = req.body.fee;
-        location_ = req.body.location_,
-        event_type = req.body.event_type;
+        fee = req.body.fee_group,
+        event_type = parseInt(req.body.type_group);
+        console.log(req.body);
 
     var dir = 'public/images/events/' + event_name;
     if(!fs.existsSync(dir)) {
@@ -131,17 +133,22 @@ router.post('/create-event', function(req, res, next) {
     }
     banner.mv(dir + '/banner.jpg', function(err) {
         if (err) {
+            console.log(err);
             throw err;
         } else {
+
+                    console.log('read');
             models.BulletinEvent.build({
                 title: event_name,
                 date: event_date,
                 description: description,
                 fee: fee,
                 banner: dir + "/banner.jpg",
-                big: event_type
+                big: event_type,
+                OrganizationId: organizer,
+                location: "up"
             }).save().then(function(){
-                res.redirect('/events');
+                res.redirect('/calendar');
             });
         }
     });

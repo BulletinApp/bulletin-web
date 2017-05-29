@@ -38,7 +38,7 @@
           <div class="card-reveal grey-text text-darken-4">
             <span class="card-title">{{event.dataValues.title}} at {{event.dataValues.location}}<i class="material-icons right">close</i></span>
             <p>{{event.dataValues.description}}</p>
-            <p><a href="/event/:{{event.dataValues.id}}">Go to event page</a></p>
+            <p><a href="/event/{{event.dataValues.id}}">Go to event page</a></p>
           </div>
         </div>
 {% endfor %}

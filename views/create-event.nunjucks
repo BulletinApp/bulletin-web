@@ -12,7 +12,7 @@
             <div class="row">
                 <h3 class="center">CREATE EVENT</h3>
             </div>
-            <form method="post">
+            <form method="post" action="/create-event" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col s12 center">
                         <img class="circle" id="banner" src="https://tickera-wpsalad.netdna-ssl.com/wp-content/themes/tickera/style/img/freebies/icons/events/4.png?x34982" width="200px" height="200px">
@@ -25,29 +25,29 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <form action="#">
+
                             <div class="file-field input-field">
                                 <div id="submit" class="btn amber lighten-3">
                                     <span>Choose File</span>
-                                    <input id="upload-btn" type="file">
+                                    <input id="upload-btn" type="file" name="banner">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text">
                                 </div>
                             </div>
-                        </form>
+
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="event_name" type="text" class="validate">
+                        <input id="event_name" type="text" class="validate" name="event_name">
                         <label for="event_name">Event Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="event_date" type="date" class="datepicker validate">
+                        <input id="event_date" name="event_date" type="date" class="datepicker validate">
                         <label for="event_date">Event Date</label>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                 </div> #}
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="description" type="text" class="materialize-textarea validate"></textarea>
+                        <textarea name="description" id="description" type="text" class="materialize-textarea validate"></textarea>
                         <label for="description">Short Description</label>
                     </div>
                 </div>
@@ -74,33 +74,45 @@
                     </div>
                 </div> #}
                 <div class="row">
-                    <div class="input-field col s6">
-                        <div class="switch">
-                            <label>
-                              Minor Event
-                              <input type="checkbox">
-                              <span class="lever"></span>
-                              Major Event
-                            </label>
-                          </div>
+                    <div class="input-field col s12">
+                        <label>Event Type</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <div class="switch">
-                            <label>
-                              Without Fee
-                              <input type="checkbox">
-                              <span class="lever"></span>
-                              With Fee
-                            </label>
-                          </div>
+                        <p>
+                            <input value="0" name="type_group" type="radio" id="minor" checked/>
+                            <label for="minor">Minor Event</label>
+                        </p>
+                        <p>
+                            <input value="1" name="type_group" type="radio" id="major" />
+                            <label for="major">Major Event</label>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label>Event Fees</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <p>
+                            <input value="0" name="fee_group" type="radio" id="free" checked/>
+                            <label for="free">Free</label>
+                        </p>
+                        <p>
+                            <input value="1" name="fee_group" type="radio" id="with_fee" />
+                            <label for="with_fee">With Fee</label>
+                        </p>
                     </div>
                     <div class="input-field col s6">
-                        <input disabled id="fee" type="number" class="validate" min="1">
+                        <input disabled name="fee" id="fee" type="number" class="validate" min="1">
                         <label for="location">Event Fee</label>
                     </div>
                 </div>
+
 
                 <div class="row">
                     <div class="s12 center">

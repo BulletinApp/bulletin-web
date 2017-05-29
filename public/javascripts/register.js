@@ -10,6 +10,12 @@ var org_name = $('#org_name'),
     description = $('#description');
 var isComplete = true;
 
+$('.datepicker').pickadate({
+     selectMonths: true, // Creates a dropdown to control month
+     selectYears: 100, // Creates a dropdown of 15 years to control year
+     max: new Date()
+ });
+
 $('#password, #password_confirm').on('keyup', function () {
     if (password.val() == password_confirm.val()) {
         password_confirm.removeClass('invalid').addClass('validate');

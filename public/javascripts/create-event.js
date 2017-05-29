@@ -35,8 +35,7 @@ var event_name = $("#event_name"),
     organizer = $("#organizer"),
     description = $("#description"),
     event_type = null,
-    fee = null,
-    fee_switch = $("#fee_switch");
+    fee = null;
 
 $("input[name=fee_group]").on('change', function(){
         $("#fee").prop("disabled", !($("#fee").prop("disabled")));
@@ -44,18 +43,12 @@ $("input[name=fee_group]").on('change', function(){
 
 $("#submit").click(function(){
     event_type = $("input[name='type_group']:checked").val();
-    if(event_type == "yes"){
-        event_type = 1;
-    } else {
-        event_type = 0;
-    }
-    console.log(event_type)
 
     fee = $("input[name='fee_group']:checked").val();
     if(fee=="with_fee"){
         fee = $("#fee").val().toString();
     } else {
-        fee = "free";
+        fee = (0).toString();
     }
     console.log(fee)
 
