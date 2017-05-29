@@ -10,11 +10,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var session = require('express-session');
 var flash = require('express-flash');
-<<<<<<< HEAD
 var fileupload = require('express-fileupload');
-=======
 var nunjucksDate = require('nunjucks-date-filter');
->>>>>>> master
 
 var app = express();
 
